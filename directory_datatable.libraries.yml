@@ -2,10 +2,13 @@ datatable:
   version: 1.x
   css:
     theme:
-      https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css: {}
+      https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css: {}
+      https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css: {}
   js:
     https://code.jquery.com/jquery-3.6.0.min.js: { type: external, minified: true }
+    https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js: { type: external, minified: true }
     https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js: { type: external, minified: true }
+    https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js: { type: external, minified: true }
     js/initialize-datatable.js: {}
   dependencies:
     - core/jquery
