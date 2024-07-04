@@ -3,23 +3,34 @@
 namespace Drupal\directory_datatable\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\node\Entity\Node;
 
 /**
- * Returns responses for Directory Datatable routes.
+ * Returns responses for Directory DataTable routes.
  */
-class DirectoryDatatableController extends ControllerBase {
+class DirectoryDataTableController extends ControllerBase {
 
   /**
-   * Builds the response.
+   * Returns data for the DataTable.
    */
-  public function build() {
+  public function getData() {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'directory')
+      ->condition('status', 1);
+    $nids = $query->execute();
+    $nodes = Node::loadMultiple($nids);
 
-    $build['content'] = [
-      '#type' => 'item',
-      '#markup' => $this->t('It works!'),
-    ];
+    $data = [];
+    foreach ($nodes as $node) {
+      $data[] = [
+        'id' => $node->id(),
+        'title' => $node->getTitle(),
+        'email' => $node->get('field_email')->value,
+      ];
+    }
 
-    return $build;
+    return new JsonResponse($data);
   }
 
 }

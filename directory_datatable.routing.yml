@@ -1,8 +1,7 @@
-directory_datatable.example:
-  path: '/directory-datatable/example'
+directory_datatable.data:
+  path: '/directory-datatable/data'
   defaults:
-    _title: 'Example'
-    _controller: '\Drupal\directory_datatable\Controller\DirectoryDatatableController::build'
+    _controller: '\Drupal\directory_datatable\Controller\DirectoryDataTableController::getData'
+    _title: 'Directory DataTable Data'
   requirements:
     _permission: 'access content'
-
