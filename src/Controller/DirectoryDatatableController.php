@@ -26,7 +26,11 @@ class DirectoryDataTableController extends ControllerBase {
       $data[] = [
         'id' => $node->id(),
         'title' => $node->getTitle(),
-        'email' => $node->get('field_email')->value,
+        'email' => $node->get('field_dir_email')->value,
+        'division' => $node->get('field_dir_division')->value,
+        'contact' => $node->get('field_dir_contact')->value,
+        'offices' => $node->get('field_dir_offices')->value,
+        'position' => $node->get('field_dir_position')->value,
       ];
     }
 
