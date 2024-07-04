@@ -15,6 +15,7 @@ use Drupal\Core\Block\BlockBase;
  */
 class DirectoryDatatableBlock extends BlockBase {
 
+ 
   /**
    * {@inheritdoc}
    */
@@ -22,9 +23,12 @@ class DirectoryDatatableBlock extends BlockBase {
     // Attach the library for DataTable.
     $build['#attached']['library'][] = 'directory_datatable/datatable';
 
+    // Generate the URL for the data endpoint.
+    $data_url = Url::fromRoute('directory_datatable.data')->toString();
+
     // Attach Drupal settings for the data URL.
     $build['#attached']['drupalSettings']['directory_datatable'] = [
-      'dataUrl' => \Drupal::url('directory_datatable.data'),
+      'dataUrl' => $data_url,
     ];
 
     // Return the custom Twig template.

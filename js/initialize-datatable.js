@@ -9,6 +9,10 @@
               { data: "id" },
               { data: "title" },
               { data: "email" },
+              { data: "division" },
+              { data: "contact" },
+              { data: "offices" },
+              { data: "position" },
             ],
           });
         });
