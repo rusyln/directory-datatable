@@ -18,6 +18,8 @@ class DirectoryDataTableController extends ControllerBase {
     $query = \Drupal::entityQuery('node')
       ->condition('type', 'directory')
       ->condition('status', 1);
+      ->accessCheck(TRUE);
+
     $nids = $query->execute();
     $nodes = Node::loadMultiple($nids);
 
