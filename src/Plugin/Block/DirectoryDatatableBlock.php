@@ -3,7 +3,7 @@
 namespace Drupal\directory_datatable\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-
+use Drupal\Core\Url;
 /**
  * Provides an example block.
  *
